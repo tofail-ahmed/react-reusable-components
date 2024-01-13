@@ -1,12 +1,15 @@
+import { Outlet } from "react-router-dom"
 import Home from "./pages/Home"
+import MainLayout from "./components/lyaout/MainLayout"
 
 
 function App() {
 
   return (
     <>
-  <h1>React Hyper App</h1>
-   <Home/>
+   <MainLayout/>
+
+   
     </>
   )
 }
