@@ -2,7 +2,7 @@ import React from 'react'
 
 const Sidebar = () => {
   return (
-    <div className='flex flex-col'><button className="btn-primary">Primary</button>
+    <div className='flex flex-col gap-4'><button className="btn-primary">Primary</button>
     <button className="btn-secondary">Secondary</button>
     <button className="btn-danger">Danger</button>
     <button className="btn-warning">Warning</button>

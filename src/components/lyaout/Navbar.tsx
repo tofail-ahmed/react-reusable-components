@@ -2,7 +2,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div>
+    <div className='flex gap-4 flex-wrap'>
       <button className="btn-primary">Primary</button>
       <button className="btn-secondary">Secondary</button>
       <button className="btn-danger">Danger</button>
