@@ -13,12 +13,12 @@ const Modal = ({ modal, setModal, children }: TModal) => {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center overflow-y-auto ${
+      className={`fixed inset-0 flex items-center justify-center  ${
         modal ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className="relative bg-slate-400 p-6 rounded-lg max-w-[80%] max-h-[80%] overflow-y-auto">
-        <div className="max-h-full overflow-y-auto">
+      <div className="relative bg-slate-400/20 p-6 rounded-lg max-w-[80%] max-h-[80%] overflow-y-auto">
+        <div >
           {children}
         </div>
         <div className="absolute top-1 right-1">

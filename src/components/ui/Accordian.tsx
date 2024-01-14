@@ -17,11 +17,11 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, children }) => {
     <div className="mb-4">
       <div
         onClick={handleAccordion}
-        className="cursor-cell bg-blue-500 text-white p-2 rounded"
+        className="cursor-cell bg-blue-500/70 text-white p-2 rounded"
       >
-        <strong>{title}</strong>
+        <strong className="text-red-600 ">{title}</strong>
       </div>
-      {isOpen && <div className="bg-gray-200 p-3 rounded">{children}</div>}
+      {isOpen && <div className="bg-gray-200/90 p-3 rounded">{children}</div>}
     </div>
   );
 };
