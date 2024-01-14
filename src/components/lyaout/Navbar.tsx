@@ -2,7 +2,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className='flex gap-4 flex-wrap'>
+    <div className='flex gap-4 flex-wrap justify-center'>
       <button className="btn-primary">Primary</button>
       <button className="btn-secondary">Secondary</button>
       <button className="btn-danger">Danger</button>
@@ -15,6 +15,9 @@ const Navbar = () => {
       <button className="btn-gray">Gray</button>
       <button className="btn-purple">Purple</button>
       <button className="btn-pink">Pink</button>
+      <button className="btn-solid">Solid</button>
+      <button className="btn-outline">Outline</button>
+      <button className="btn-ghost">Ghost</button>
     </div>
   );
 }
