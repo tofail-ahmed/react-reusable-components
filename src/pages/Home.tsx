@@ -1,3 +1,4 @@
+// Home.jsx
 import React, { useState } from "react";
 import Button from "../components/Button";
 import Modal from "../components/ui/Modal";
@@ -5,28 +6,19 @@ import Modal from "../components/ui/Modal";
 const Home = () => {
   const [modal, setModal] = useState(false);
 
-  console.log(modal);
   return (
     <div className="flex items-center justify-around">
       <h1>Home</h1>
 
-      <div
-        className={`${
-          modal ? " fixed inset-0 z-50 flex items-center justify-center " : ""
-        }`}
+      <Button
+        onClick={() => setModal((prev) => !prev)}
+        variant="solid"
+        title="Open Modal"
+        className={`${modal ? "invisible" : "visible"}`}
       >
-        {modal ? (
-          <Modal modal={modal} setModal={setModal}></Modal>
-        ) : (
-          <Button
-            onClick={() => setModal(!modal)}
-            variant="solid"
-            title="Open Modal"
-          >
-            Click Meh
-          </Button>
-        )}
-      </div>
+        Click Meh
+      </Button>
+      <Modal modal={modal} setModal={setModal}></Modal>
     </div>
   );
 };
