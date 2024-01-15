@@ -17,13 +17,13 @@ const Modal = ({ modal, setModal, children }: TModal) => {
         modal ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className="relative bg-slate-400/20 p-6 rounded-lg max-w-[80%] max-h-[80%] overflow-y-auto">
+      <div className="relative bg-slate-400/40 p-6 rounded-lg max-w-[80%] max-h-[80%] overflow-y-auto">
         <div >
           {children}
         </div>
-        <div className="absolute top-1 right-1">
-          <Button onClick={closeModal} title="X" className="btn-warning">
-            Close Modal
+        <div className="absolute top-1 right-11">
+          <Button onClick={closeModal} title="X" className=" fixed btn-warning  text-sm">
+           
           </Button>
         </div>
       </div>
