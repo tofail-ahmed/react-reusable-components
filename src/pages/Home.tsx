@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Button from "../components/Button";
 import Modal from "../components/ui/Modal";
 import { useForm } from "react-hook-form";
+import cn from "../utils/cn";
+import NormalForm from "../components/Forms/NormalForm";
 
 const Home = () => {
   const [modal, setModal] = useState(false);
@@ -10,6 +12,10 @@ const Home = () => {
   const onSubmit = (data) => {
     console.log(data);
   };
+  const [double,setDouble]=useState(false);
+  const handleDouble=()=>{
+    setDouble((prev=>!prev))
+  }
 
   return (
     <div>
@@ -25,205 +31,91 @@ const Home = () => {
           Click Meh
         </Button>
         <Modal modal={modal} setModal={setModal}>
-          <h3>This is modal</h3>
+        <h4>Registration Form </h4>
+        <NormalForm></NormalForm>
         </Modal>
       </div>
       <div>
         <form
-          className="border border-yellow-600 p-4 bg-rose-200/40"
+          className={cn("border border-green-950 p-4 max-w-lg mx-auto bg-green-600/40",
+          {
+            "max-w-4xl bg-red-600":double
+          })}
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="lg:flex  gap-4 justify-center">
-            <div className="border border-blue-600 p-4 lg:w-[30%] bg-slate-400/70">
+          <div className="">
+            <div className={cn("border border-blue-600 p-4  bg-slate-400/70 grid grid-cols-1 justify-items-center  gap-4",
+            {
+              "md:grid-cols-2 bg-green-600/90":double
+            })}>
               <div>
                 <label
-                  className=" block bg-red-500/70 text-green-600 font-bold p-2 rounded-s-md"
+                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
                   htmlFor="name"
                 >
                   Name
                 </label>
                 <input
+                  className="w-full border border-black rounded-md focus:border-red-800 focus:ring-2 focus:ring-green-800"
                   type="text"
                   id="name"
                   placeholder="Name"
                   {...register("name")}
                 ></input>
-                <select>
-                  <option value="">One</option>
-                  <option value="">Two</option>
-                  <option value="">Three</option>
-                  <option value="">Four</option>
-                </select>
               </div>
               <div>
                 <label
-                  className=" block bg-red-500/70 text-green-600 font-bold p-2 rounded-s-md"
+                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
                   htmlFor="name"
                 >
-                  Name
+                  Email
                 </label>
                 <input
+                  className="w-full border border-black rounded-md focus:border-red-800 focus:ring-2 focus:ring-green-800"
                   type="text"
                   id="name"
-                  placeholder="Name"
+                  placeholder="Email"
                   {...register("name")}
                 ></input>
-                <select>
-                  <option value="">One</option>
-                  <option value="">Two</option>
-                  <option value="">Three</option>
-                  <option value="">Four</option>
-                </select>
               </div>
               <div>
                 <label
-                  className=" block bg-red-500/70 text-green-600 font-bold p-2 rounded-s-md"
+                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
                   htmlFor="name"
                 >
-                  Name
+                  Password
                 </label>
                 <input
+                  className="w-full border border-black rounded-md focus:border-red-800 focus:ring-2 focus:ring-green-800"
                   type="text"
                   id="name"
-                  placeholder="Name"
+                  placeholder="Password"
                   {...register("name")}
                 ></input>
-                <select>
-                  <option value="">One</option>
-                  <option value="">Two</option>
-                  <option value="">Three</option>
-                  <option value="">Four</option>
-                </select>
-              </div>
-            </div>
-            <div className="border border-blue-600 p-4 lg:w-[30%] bg-slate-400/70">
-              <div>
-                <label
-                  className=" block bg-red-500/70 text-green-600 font-bold p-2 rounded-s-md"
-                  htmlFor="name"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Name"
-                  {...register("name")}
-                ></input>
-                <select>
-                  <option value="">One</option>
-                  <option value="">Two</option>
-                  <option value="">Three</option>
-                  <option value="">Four</option>
-                </select>
               </div>
               <div>
                 <label
-                  className=" block bg-red-500/70 text-green-600 font-bold p-2 rounded-s-md"
+                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
                   htmlFor="name"
                 >
-                  Name
+                  Address
                 </label>
                 <input
+                  className="w-full border border-black rounded-md focus:border-red-800 focus:ring-2 focus:ring-green-800"
                   type="text"
                   id="name"
-                  placeholder="Name"
+                  placeholder="Address"
                   {...register("name")}
                 ></input>
-                <select>
-                  <option value="">One</option>
-                  <option value="">Two</option>
-                  <option value="">Three</option>
-                  <option value="">Four</option>
-                </select>
-              </div>
-              <div>
-                <label
-                  className=" block bg-red-500/70 text-green-600 font-bold p-2 rounded-s-md"
-                  htmlFor="name"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Name"
-                  {...register("name")}
-                ></input>
-                <select>
-                  <option value="">One</option>
-                  <option value="">Two</option>
-                  <option value="">Three</option>
-                  <option value="">Four</option>
-                </select>
-              </div>
-            </div>
-            <div className="border border-blue-600 p-4 lg:w-[30%] bg-slate-400/70">
-              <div>
-                <label
-                  className=" block bg-red-500/70 text-green-600 font-bold p-2 rounded-s-md"
-                  htmlFor="name"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Name"
-                  {...register("name")}
-                ></input>
-                <select>
-                  <option value="">One</option>
-                  <option value="">Two</option>
-                  <option value="">Three</option>
-                  <option value="">Four</option>
-                </select>
-              </div>
-              <div>
-                <label
-                  className=" block bg-red-500/70 text-green-600 font-bold p-2 rounded-s-md"
-                  htmlFor="name"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Name"
-                  {...register("name")}
-                ></input>
-                <select>
-                  <option value="">One</option>
-                  <option value="">Two</option>
-                  <option value="">Three</option>
-                  <option value="">Four</option>
-                </select>
-              </div>
-              <div>
-                <label
-                  className=" block bg-red-500/70 text-green-600 font-bold p-2 rounded-s-md"
-                  htmlFor="name"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Name"
-                  {...register("name")}
-                ></input>
-                <select>
-                  <option value="">One</option>
-                  <option value="">Two</option>
-                  <option value="">Three</option>
-                  <option value="">Four</option>
-                </select>
               </div>
             </div>
           </div>
-          <Button type="submit" title="Submit" className="btn-success mx-auto">
+          {/* <Button type="submit" title="Submit" className="btn-success mx-auto">
             Submit
-          </Button>
+          </Button> */}
+          {/* <Button onClick={handleDouble} title={`${double?"Single":"Double"}`} className="btn-success mx-auto">
+            Submit
+          </Button> */}
         </form>
       </div>
     </div>
