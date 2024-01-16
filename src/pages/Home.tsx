@@ -12,7 +12,7 @@ const Home = () => {
   const onSubmit = (data) => {
     console.log(data);
   };
-  const [double,setDouble]=useState(false);
+  const [double,setDouble]=useState(true);
   const handleDouble=()=>{
     setDouble((prev=>!prev))
   }
@@ -48,7 +48,7 @@ const Home = () => {
             {
               "md:grid-cols-2 bg-green-600/90":double
             })}>
-              <div>
+              <div className="w-[70%] max-w-md">
                 <label
                   className=" block  text-red-600 font-bold p-2 rounded-s-md"
                   htmlFor="name"
@@ -56,14 +56,14 @@ const Home = () => {
                   Name
                 </label>
                 <input
-                  className="w-full border border-black rounded-md focus:border-red-800 focus:ring-2 focus:ring-green-800"
+                  className="formInput"
                   type="text"
                   id="name"
                   placeholder="Name"
                   {...register("name")}
                 ></input>
-              </div>
-              <div>
+              </div >
+              <div className="w-[70%] max-w-md">
                 <label
                   className=" block  text-red-600 font-bold p-2 rounded-s-md"
                   htmlFor="name"
@@ -71,14 +71,14 @@ const Home = () => {
                   Email
                 </label>
                 <input
-                  className="w-full border border-black rounded-md focus:border-red-800 focus:ring-2 focus:ring-green-800"
+                  className="formInput"
                   type="text"
                   id="name"
                   placeholder="Email"
                   {...register("name")}
                 ></input>
               </div>
-              <div>
+              <div className="w-[70%] max-w-md">
                 <label
                   className=" block  text-red-600 font-bold p-2 rounded-s-md"
                   htmlFor="name"
@@ -86,14 +86,14 @@ const Home = () => {
                   Password
                 </label>
                 <input
-                  className="w-full border border-black rounded-md focus:border-red-800 focus:ring-2 focus:ring-green-800"
+                  className="formInput"
                   type="text"
                   id="name"
                   placeholder="Password"
                   {...register("name")}
                 ></input>
               </div>
-              <div>
+              <div className="w-[70%] max-w-md">
                 <label
                   className=" block  text-red-600 font-bold p-2 rounded-s-md"
                   htmlFor="name"
@@ -101,12 +101,45 @@ const Home = () => {
                   Address
                 </label>
                 <input
-                  className="w-full border border-black rounded-md focus:border-red-800 focus:ring-2 focus:ring-green-800"
+            
                   type="text"
                   id="name"
                   placeholder="Address"
                   {...register("name")}
                 ></input>
+              </div>
+              <div className="w-[70%] max-w-md" >
+                <label
+                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
+                  htmlFor="name"
+                >
+                  Address
+                </label>
+              <textarea ></textarea>
+              </div>
+              <div className="w-[70%] max-w-md" >
+                <label
+                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
+                  htmlFor="name"
+                >
+                  Address
+                </label>
+               <select  >
+                <option value="">18</option>
+                <option value="">19</option>
+                <option value="">20</option>
+                <option value="">21</option>
+                <option value="">22</option>
+               </select>
+              </div>
+              <div className="w-[70%] max-w-md" >
+                <label
+                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
+                  htmlFor="name"
+                >
+                  Address
+                </label>
+             <input className="checkbox" type="checkbox" name="" id="" />
               </div>
             </div>
           </div>

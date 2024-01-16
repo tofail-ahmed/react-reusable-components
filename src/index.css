@@ -5,5 +5,28 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
+@layer base {
+  .checkbox {
+    @apply w-10 h-10 bg-gray-300 border-4  rounded-full focus:bg-amber-600  checked:border-red-700 ;
+  }
+}
+@layer base {
+  [type='text'],
+  input:where(:not([type])),
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  textarea,
+  select {
+    @apply w-full border focus:bg-amber-500 border-black rounded-md focus:border-red-800 focus:ring-2 focus:ring-green-800;
+  }
+}
