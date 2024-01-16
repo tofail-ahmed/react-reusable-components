@@ -37,20 +37,20 @@ const Home = () => {
       </div>
       <div>
         <form
-          className={cn("border border-green-950 p-4 max-w-lg mx-auto bg-green-600/40",
+          className={cn(" p-1 max-w-md mx-auto shadow-2xl rounded-md shadow-slate-700",
           {
-            "max-w-4xl bg-red-600":double
+            "max-w-4xl ":double
           })}
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="">
-            <div className={cn("border border-blue-600 p-4  bg-slate-400/70 grid grid-cols-1 justify-items-center  gap-4",
+            <div className={cn(" p-4 rounded-md  bg-green-600/40 grid grid-cols-1 justify-items-center  gap-4",
             {
-              "md:grid-cols-2 bg-green-600/90":double
+              "md:grid-cols-2 ":double
             })}>
               <div className="w-[70%] max-w-md">
                 <label
-                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
+                  className=" block  text-red-600 font-bold  rounded-s-md"
                   htmlFor="name"
                 >
                   Name
@@ -65,7 +65,7 @@ const Home = () => {
               </div >
               <div className="w-[70%] max-w-md">
                 <label
-                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
+                  className=" block  text-red-600 font-bold  rounded-s-md"
                   htmlFor="name"
                 >
                   Email
@@ -80,7 +80,7 @@ const Home = () => {
               </div>
               <div className="w-[70%] max-w-md">
                 <label
-                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
+                  className=" block  text-red-600 font-bold  rounded-s-md"
                   htmlFor="name"
                 >
                   Password
@@ -95,7 +95,7 @@ const Home = () => {
               </div>
               <div className="w-[70%] max-w-md">
                 <label
-                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
+                  className=" block  text-red-600 font-bold  rounded-s-md"
                   htmlFor="name"
                 >
                   Address
@@ -110,7 +110,7 @@ const Home = () => {
               </div>
               <div className="w-[70%] max-w-md" >
                 <label
-                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
+                  className=" block  text-red-600 font-bold  rounded-s-md"
                   htmlFor="name"
                 >
                   Address
@@ -119,7 +119,7 @@ const Home = () => {
               </div>
               <div className="w-[70%] max-w-md" >
                 <label
-                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
+                  className=" block  text-red-600 font-bold  rounded-s-md"
                   htmlFor="name"
                 >
                   Address
@@ -134,18 +134,20 @@ const Home = () => {
               </div>
               <div className="w-[70%] max-w-md" >
                 <label
-                  className=" block  text-red-600 font-bold p-2 rounded-s-md"
+                  className=" block  text-red-600 font-bold  rounded-s-md"
                   htmlFor="name"
                 >
                   Address
                 </label>
-             <input className="checkbox" type="checkbox" name="" id="" />
+             <input  type="checkbox" name="" id="" />
               </div>
             </div>
           </div>
-          {/* <Button type="submit" title="Submit" className="btn-success mx-auto">
+         <div className="flex justify-end">
+         <Button type="submit" title="Submit" className="btn-success ">
             Submit
-          </Button> */}
+          </Button>
+         </div>
           {/* <Button onClick={handleDouble} title={`${double?"Single":"Double"}`} className="btn-success mx-auto">
             Submit
           </Button> */}
