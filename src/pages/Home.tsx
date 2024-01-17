@@ -2,21 +2,30 @@
 import React, { useState } from "react";
 import Button from "../components/Button";
 import Modal from "../components/ui/Modal";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import cn from "../utils/cn";
 import NormalForm from "../components/Forms/NormalForm";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { SignUpSchema, TForm } from "../components/Forms/validation";
+
 const Home = () => {
   const [modal, setModal] = useState(false);
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<TForm>({ resolver: zodResolver(SignUpSchema) });
+  const onSubmit = (data: FieldValues) => {
     console.log(data);
   };
-  const [double,setDouble]=useState(true);
-  const handleDouble=()=>{
-    setDouble((prev=>!prev))
-  }
-
+  const double = true;
+  // const [double, setDouble] = useState(true);
+  // const handleDouble = () => {
+  //   setDouble((prev) => !prev);
+  // };
+console.log(watch("name"))
   return (
     <div>
       <div className="flex items-center justify-around">
@@ -31,24 +40,30 @@ const Home = () => {
           Click Meh
         </Button>
         <Modal modal={modal} setModal={setModal}>
-        <h4>Registration Form </h4>
-        <NormalForm></NormalForm>
+          <h4>Registration Form </h4>
+          <NormalForm></NormalForm>
         </Modal>
       </div>
       <div>
         <form
-          className={cn(" p-1 max-w-md mx-auto shadow-2xl rounded-md shadow-slate-700",
-          {
-            "max-w-4xl ":double
-          })}
+          className={cn(
+            " p-1 max-w-md mx-auto shadow-2xl rounded-md shadow-slate-700",
+            {
+              "max-w-4xl ": double,
+            }
+          )}
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="">
-            <div className={cn(" p-4 rounded-md  bg-green-600/40 grid grid-cols-1 justify-items-center  gap-4",
-            {
-              "md:grid-cols-2 ":double
-            })}>
-              <div className="w-[70%] max-w-md">
+            <div
+              className={cn(
+                " p-4  rounded-md  bg-green-600/40 grid grid-cols-1 justify-items-center  gap-4",
+                {
+                  "md:grid-cols-2 ": double,
+                }
+              )}
+            >
+              <div className="w-full max-w-md">
                 <label
                   className=" block  text-red-600 font-bold  rounded-s-md"
                   htmlFor="name"
@@ -62,92 +77,78 @@ const Home = () => {
                   placeholder="Name"
                   {...register("name")}
                 ></input>
-              </div >
-              <div className="w-[70%] max-w-md">
+                {errors.name && (
+                  <span className="text-red-900 font-semibold">
+                    {errors.name.message}
+                  </span>
+                )}
+              </div>
+              <div className="w-full max-w-md">
                 <label
                   className=" block  text-red-600 font-bold  rounded-s-md"
-                  htmlFor="name"
+                  htmlFor="email"
                 >
                   Email
                 </label>
                 <input
                   className="formInput"
-                  type="text"
-                  id="name"
+                  type="email"
+                  id="email"
                   placeholder="Email"
-                  {...register("name")}
+                  {...register("email")}
                 ></input>
+                {errors.email && (
+                  <span className="text-red-900 font-semibold">
+                    {errors.email.message}
+                  </span>
+                )}
               </div>
-              <div className="w-[70%] max-w-md">
+              <div className="w-full max-w-md">
                 <label
                   className=" block  text-red-600 font-bold  rounded-s-md"
-                  htmlFor="name"
+                  htmlFor="password"
                 >
                   Password
                 </label>
                 <input
                   className="formInput"
-                  type="text"
-                  id="name"
+                  type="password"
+                  id="password"
                   placeholder="Password"
-                  {...register("name")}
+                  {...register("password")}
                 ></input>
+                {errors.password && (
+                  <span className="text-red-900 font-semibold">
+                    {errors.password.message}
+                  </span>
+                )}
               </div>
-              <div className="w-[70%] max-w-md">
+              <div className="w-full max-w-md">
                 <label
                   className=" block  text-red-600 font-bold  rounded-s-md"
-                  htmlFor="name"
+                  htmlFor="address"
                 >
                   Address
                 </label>
                 <input
-            
                   type="text"
-                  id="name"
+                  id="address"
                   placeholder="Address"
-                  {...register("name")}
+                  {...register("address", { required: true })}
                 ></input>
-              </div>
-              <div className="w-[70%] max-w-md" >
-                <label
-                  className=" block  text-red-600 font-bold  rounded-s-md"
-                  htmlFor="name"
-                >
-                  Address
-                </label>
-              <textarea ></textarea>
-              </div>
-              <div className="w-[70%] max-w-md" >
-                <label
-                  className=" block  text-red-600 font-bold  rounded-s-md"
-                  htmlFor="name"
-                >
-                  Address
-                </label>
-               <select  >
-                <option value="">18</option>
-                <option value="">19</option>
-                <option value="">20</option>
-                <option value="">21</option>
-                <option value="">22</option>
-               </select>
-              </div>
-              <div className="w-[70%] max-w-md" >
-                <label
-                  className=" block  text-red-600 font-bold  rounded-s-md"
-                  htmlFor="name"
-                >
-                  Address
-                </label>
-             <input  type="checkbox" name="" id="" />
+                {errors.address && (
+                  <span className="text-red-900 font-semibold">
+                    {errors.address.message}
+                  </span>
+                )}
               </div>
             </div>
           </div>
-         <div className="flex justify-end">
-         <Button type="submit" title="Submit" className="btn-success ">
-            Submit
-          </Button>
-         </div>
+          <div className="flex justify-end mt-2">
+            <Button type="submit" title="Submit" className="btn-success ">
+              Submit
+            </Button>
+          </div>
           {/* <Button onClick={handleDouble} title={`${double?"Single":"Double"}`} className="btn-success mx-auto">
             Submit
           </Button> */}

@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <div className='flex gap-4 flex-wrap justify-center'>
-      <button className="btn-primary">Primary</button>
+      <button className="btn-primary"><Link to={"/admin"}>Admin</Link></button>
       <button className="btn-secondary">Secondary</button>
       <button className="btn-danger">Danger</button>
       <button className="btn-warning">Warning</button>
