@@ -2,6 +2,8 @@ import React from "react";
 import { Form, FormSection, FormSubmit, Input } from "../ReusableForm";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import RadioCheckbox from "./RadioCheckbox";
+import Checkbox from "./Checkbox";
+import RadioButton from "./RadioButton";
 
 const ReusableForm = () => {
   const genderOptions = [
@@ -58,30 +60,39 @@ const ReusableForm = () => {
             type="textarea"
             register={register("address")}
             errors={errors}
+            errorMessage="Address is required"
+            options={""}
           />
           <RadioCheckbox
             label="Age"
             type="select"
-            register={register("age")}
+            register={register("age", { required: "You must select the age" })}
             errors={errors}
             options={[18, 19, 20, 21, 22].map((value) => ({
               value,
               label: value,
             }))}
+            errorMessage="Age is required"
           />
-          <RadioCheckbox
-            label="Gender"
-            type="radio"
-            register={register("gender")}
+          
+          <Checkbox
+            register={register("terms", {
+              required: "You must accept the terms",
+            })}
             errors={errors}
+            label={"Accept Terms and conditions"}
+            id={"terms"}
+          ></Checkbox>
+          {/* //*radio button----------- */}
+          <RadioButton
+            head={"Gender"}
+            id={"gender"}
             options={genderOptions}
-          />
-          <RadioCheckbox
-            label="Accept Terms"
-            type="checkbox"
-            register={register("terms")}
             errors={errors}
-          />
+            register={register("gender", {
+              required: "You must select the terms",
+            })}
+          ></RadioButton>
         </FormSection>
         <FormSubmit></FormSubmit>
       </Form>
