@@ -1,36 +1,26 @@
 import React from 'react';
 
+export const Input = ({ label, register, errors, type, placeholder }) => {
+  const fieldName = register.name || 'name'; 
+  console.log(register)
 
-// type TInput = {
-//   label: string,
-//   register: object,
-//   errors: object,
-//   type: string,
-//   placeholder: string,
- 
-// };
-export const Input = ({label,register,errors,type,placeholder,}) => {
-      return (
-            <div className= 'w-full max-w-md'>
-            <label
-              className=" block  text-red-600 font-bold  rounded-s-md"
-              htmlFor="name"
-            >
-              {label}
-            </label>
-            <input
-              className="formInput"
-              type={type}
-              id="name"
-              placeholder={placeholder}
-              {...register}
-            ></input>
-            {errors.name && (
-              <span className="text-red-600 text-sm">
-                {errors.name.message}
-              </span>
-            )}
-          </div>
-      );
+  return (
+    <div className="w-full max-w-md">
+      <label className="block text-red-600 font-bold rounded-s-md" htmlFor={fieldName}>
+        {label}
+      </label>
+      <input
+        className="formInput"
+        type={type}
+        id={fieldName}
+        placeholder={placeholder}
+        {...register}
+      ></input>
+      {errors[fieldName] && (
+        <span className="text-red-600 text-sm">
+          {errors[fieldName].message}
+        </span>
+      )}
+    </div>
+  );
 };
-

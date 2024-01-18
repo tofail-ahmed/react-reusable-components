@@ -1,4 +1,6 @@
 import React from "react";
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+
 
 const Checkbox = ({ register, errors, label,id }) => {
       console.log(errors)

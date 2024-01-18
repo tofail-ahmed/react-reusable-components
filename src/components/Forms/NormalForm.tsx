@@ -1,11 +1,21 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import cn from "../../utils/cn";
 import Button from "../Button";
+interface FormData {
+  name: string;
+  email: string;
+  password: string;
+  address: string;
+  textarea: string;
+  age: string;
+  gender: string;
+  terms: boolean;
+}
 
 const NormalForm = () => {
-  const { handleSubmit, register, watch,formState: { errors } } = useForm();
-  const onSubmit = (data) => {
+  const { handleSubmit, register,formState: { errors } } = useForm<FormData>();
+  const onSubmit : SubmitHandler<FormData> = (data) => {
     console.log(data);
   };
 const [double,setDouble]=useState(true)

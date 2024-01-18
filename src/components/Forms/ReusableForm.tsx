@@ -1,7 +1,6 @@
-import React from "react";
 import { Form, FormSection, FormSubmit, Input } from "../ReusableForm";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import RadioCheckbox from "./RadioCheckbox";
+
 import Checkbox from "./Checkbox";
 import RadioButton from "./RadioButton";
 import SelectOption from "./SelectOption";
