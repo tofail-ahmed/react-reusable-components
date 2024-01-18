@@ -8,7 +8,7 @@ const RadioCheckbox = ({ label, type, register, errors, options, errorMessage, .
       </label>
       {type === "textarea" ? (
         <div>
-          <textarea {...register} {...inputProps}></textarea>
+          <textarea rows={1} {...register} {...inputProps}></textarea>
           {errors[inputProps.name] && (
             <span className="text-red-900 font-semibold">{errorMessage}</span>
           )}
@@ -23,9 +23,9 @@ const RadioCheckbox = ({ label, type, register, errors, options, errorMessage, .
               </option>
             ))}
           </select>
-          {errors[inputProps.name] && (
-            <span className="text-red-900 font-semibold">{errorMessage}</span>
-          )}
+          {errors.gender && (
+        <span className="text-red-600 text-sm">{errors.gender.message}</span>
+      )}
         </div>
       ) : type === "checkbox" ? (
         <div>

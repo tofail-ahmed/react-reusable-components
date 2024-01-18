@@ -1,6 +1,7 @@
 import React from "react";
 
 const RadioButton = ({ register, options, id, errors, head }) => {
+      console.log(errors)
   return (
     <div className="w-full max-w-md">
       <div>

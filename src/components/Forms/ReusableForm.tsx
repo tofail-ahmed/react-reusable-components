@@ -4,6 +4,8 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import RadioCheckbox from "./RadioCheckbox";
 import Checkbox from "./Checkbox";
 import RadioButton from "./RadioButton";
+import SelectOption from "./SelectOption";
+import Textarea from "./Textarea";
 
 const ReusableForm = () => {
   const genderOptions = [
@@ -29,52 +31,41 @@ const ReusableForm = () => {
             type="text"
             label="Name"
             placeholder="Name"
-            register={register("name")}
+            register={register("name", { required: "type your name" })}
             errors={errors}
           ></Input>
           <Input
             type="email"
             label="Email"
             placeholder="Email"
-            register={register("email")}
+            register={register("email", { required: "type your email" })}
             errors={errors}
           ></Input>
           <Input
             type="password"
             label="Password"
             placeholder="Password"
-            register={register("password")}
+            register={register("password", { required: "type your password" })}
             errors={errors}
           ></Input>
-          <Input
-            label="Address"
-            register={register("address")}
+          {/* //textArea------------------------ */}
+          <Textarea
+            head={"Address"}
             errors={errors}
-            type="text"
-            placeholder="Address"
-            id={"address"}
-            name="address"
-          ></Input>
-          <RadioCheckbox
-            label="Address"
-            type="textarea"
-            register={register("address")}
-            errors={errors}
-            errorMessage="Address is required"
-            options={""}
+            register={register("address", { required: "Type a valid Address" })}
           />
-          <RadioCheckbox
+          {/* //SelectOption--------------- */}
+          <SelectOption
             label="Age"
-            type="select"
+            head={"Age"}
             register={register("age", { required: "You must select the age" })}
             errors={errors}
             options={[18, 19, 20, 21, 22].map((value) => ({
               value,
               label: value,
             }))}
-            errorMessage="Age is required"
           />
-          
+          {/* //checkBox-------------------- */}
           <Checkbox
             register={register("terms", {
               required: "You must accept the terms",
@@ -90,7 +81,7 @@ const ReusableForm = () => {
             options={genderOptions}
             errors={errors}
             register={register("gender", {
-              required: "You must select the terms",
+              required: "You must select the gender",
             })}
           ></RadioButton>
         </FormSection>

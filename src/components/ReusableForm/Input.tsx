@@ -11,7 +11,7 @@ import React from 'react';
 // };
 export const Input = ({label,register,errors,type,placeholder,}) => {
       return (
-            <div className={type === 'radio' || type === 'checkbox' ? 'w-full max-w-md flex items-center gap-4' : 'w-full max-w-md'}>
+            <div className= 'w-full max-w-md'>
             <label
               className=" block  text-red-600 font-bold  rounded-s-md"
               htmlFor="name"
@@ -26,7 +26,7 @@ export const Input = ({label,register,errors,type,placeholder,}) => {
               {...register}
             ></input>
             {errors.name && (
-              <span className="text-red-900 font-semibold">
+              <span className="text-red-600 text-sm">
                 {errors.name.message}
               </span>
             )}
