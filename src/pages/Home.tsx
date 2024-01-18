@@ -8,7 +8,6 @@ import NormalForm from "../components/Forms/NormalForm";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SignUpSchema, TForm } from "../components/Forms/validation";
-import { Form, FormSection, FormSubmit } from "../components/ReusableForm";
 import ReusableForm from "../components/Forms/ReusableForm";
 
 const Home = () => {
@@ -22,6 +21,7 @@ const Home = () => {
   const onSubmit = (data: FieldValues) => {
     console.log(data);
   };
+  console.log(errors)
   const double = true;
   // const [double, setDouble] = useState(true);
   // const handleDouble = () => {

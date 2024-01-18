@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { ReactNode, useContext } from 'react'
 import cn from '../../utils/cn';
 import { FormElementContext } from '.';
 export const FormSection = ({children}) => {
